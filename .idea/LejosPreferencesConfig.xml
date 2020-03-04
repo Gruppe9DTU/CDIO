@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LejosPreferencesConfig">
+    <option name="ipAddress" value="192.168.43.69" />
+    <option name="ev3Home" value="$USER_HOME$/Desktop/leJOS" />
+  </component>
+</project>
