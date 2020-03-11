@@ -1,4 +1,3 @@
-
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.port.*;
@@ -49,7 +48,8 @@ public class Main {
                     System.out.println("touch: ");
 
                 }
-
+         }       
+}
 
 
     }
