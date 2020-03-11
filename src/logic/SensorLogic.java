@@ -33,7 +33,7 @@ public class SensorLogic {
         int colour;
 
         while(Button.ESCAPE.isUp()) {
-                    /*
+
                     i++;
                     colour = colorSensor.getColorID();
                     System.out.println(i + " round, Cl: " + colour);
@@ -44,7 +44,7 @@ public class SensorLogic {
                     } else {
                         whiteColourStreak = 0; //reset colour streak if other colour is found
                     }
-*/
+
             try {
                 sleep(500);
             } catch (InterruptedException e) {
