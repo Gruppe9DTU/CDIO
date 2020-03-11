@@ -3,6 +3,7 @@ package logic;
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
+import lejos.utility.Delay;
 
 public class GrabLogic {
 
@@ -33,15 +34,15 @@ public class GrabLogic {
         LCD.drawString("Program 1", 0, 0);
         Button.waitForAnyPress();
         LCD.clear();
-        Motor.A.setSpeed(1000);
-        Motor.A.forward();
+        Motor.B.setSpeed(1000);
+        Motor.B.backward();
         LCD.drawString("FORWARD", 0, 0);
         Button.waitForAnyPress();
         LCD.drawString("BACKWARD", 0, 0);
-        Motor.A.setSpeed(1000);
-        Motor.A.backward();
+        Motor.B.setSpeed(1000);
+        Motor.B.forward();
         Button.waitForAnyPress();
-        Motor.A.stop();
+        Motor.B.stop();
     }
 
 }

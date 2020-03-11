@@ -2,13 +2,17 @@ package logic;
 
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
+import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.utility.Delay;
 
 import static java.lang.Thread.sleep;
 
 public class SensorLogic {
+
+    GrabLogic grabLogic = new GrabLogic();
 
     public SensorLogic() {
 
@@ -39,6 +43,10 @@ public class SensorLogic {
                     System.out.println(i + " round, Cl: " + colour);
                     if (colour == 6 && whiteColourStreak == 1){
                         Sound.beep();
+                        Motor.A.rotate(90,true);
+                        Motor.D.rotate(90,true);
+                        grabLogic.grabBall();
+                        break;
                     } else if (colour == 6){
                         whiteColourStreak++;
                     } else {
