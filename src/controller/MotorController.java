@@ -33,11 +33,13 @@ public class MotorController {
     }
 
     public void wiggleTest(int wiggleness) {
-        while(Button.ESCAPE.isUp() && driving) {
+        while(driving) {
             wiggleness = directionHandling(wiggleness);
 //            try {
                 rightwheel.rotate(wiggleness);
                 leftwheel.rotate(wiggleness);
+
+                if (Button.ESCAPE.isDown()) driving = false;
 //            } catch (RemoteException e) {
 //                e.printStackTrace();
 //            }
@@ -45,7 +47,7 @@ public class MotorController {
     }
 
     public void driveTest(int fastness) {
-        while(Button.ESCAPE.isUp() && driving) {
+        while(driving) {
             fastness = directionHandling(fastness);
 //            try {
                 rightwheel.setSpeed(fastness);
@@ -53,6 +55,8 @@ public class MotorController {
 
                 rightwheel.forward();
                 leftwheel.forward();
+
+                if (Button.ESCAPE.isDown()) driving = false;
 //            } catch (RemoteException e) {
 //                e.printStackTrace();
 //            }

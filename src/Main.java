@@ -14,7 +14,7 @@ public class Main {
 //        motor.wiggleTest(30);
         motor.driveTest(1000);
 
-        Button.waitForAnyPress();
-        motor.setDriving(false);
+//        Button.waitForAnyPress();
+//        motor.setDriving(false);
     }
 }
