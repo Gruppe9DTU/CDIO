@@ -9,7 +9,7 @@ public class Main {
 
 
         //TODO All below is for testing purpose, delete when ready
-        MotorController motor = new MotorController((RemoteEV3) BrickFinder.getDefault());
+        MotorController motor = new MotorController();
         motor.setDriving(true);
 //        motor.wiggleTest(30);
         motor.driveTest(1000);
