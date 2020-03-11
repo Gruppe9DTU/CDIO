@@ -1,10 +1,8 @@
 
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
-import lejos.hardware.motor.*;
 import lejos.hardware.port.*;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.utility.Delay;
 
 import static java.lang.Thread.sleep;
 
@@ -19,18 +17,25 @@ public class Main {
 
         Button.waitForAnyPress();
 
-        final EV3ColorSensor sensorC = new EV3ColorSensor(SensorPort.S1);
-        sensorC.setCurrentMode(1);
+        EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
 
-        Runnable ballReg = new Runnable() {
-            @Override
-            public void run() {
-                boolean running = true;
+        colorSensor.setFloodlight(false);
+
                 int i = 0;
+                int whiteColourStreak = 0;
+                int colour;
 
-                while(running) {
+                while(Button.ESCAPE.isUp()) {
                     i++;
-                    System.out.println(i + "round, LL: "+ sensorC.toString());
+                    colour = colorSensor.getColorID();
+                    System.out.println(i + " round, LL: " + colour);
+                    if (colour == 6 && whiteColourStreak == 2){
+                        Sound.beep();
+                    } else if (colour == 6){
+                        whiteColourStreak++;
+                    } else {
+                        whiteColourStreak = 0; //reset colour streak if other colour is found
+                    }
 
                     try {
                         sleep(1000);
@@ -38,15 +43,9 @@ public class Main {
                         e.printStackTrace();
                     }
 
-                    if (Button.readButtons() > 0){
-                        running = false;
-                    }
                 }
 
-            }
-        };
 
-        ballReg.run();
 
     }
 }
