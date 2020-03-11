@@ -1,10 +1,12 @@
+package logic;
+
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
 
-public class GrabMechanism {
+public class GrabLogic {
 
-    public GrabMechanism() {
+    public GrabLogic() {
 
     }
 

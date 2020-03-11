@@ -1,7 +1,4 @@
-import lejos.hardware.Button;
-import lejos.hardware.lcd.LCD;
-import lejos.hardware.motor.Motor;
-import lejos.utility.Delay;
+import logic.GrabLogic;
 
 public class Main {
 
@@ -9,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        GrabMechanism grabMechanism = new GrabMechanism();
+        GrabLogic grabMechanism = new GrabLogic();
 
         grabMechanism.grabBall();
 
