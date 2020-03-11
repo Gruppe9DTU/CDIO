@@ -3,6 +3,7 @@ import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.port.*;
 import lejos.hardware.sensor.EV3ColorSensor;
+import lejos.hardware.sensor.EV3TouchSensor;
 
 import static java.lang.Thread.sleep;
 
@@ -18,30 +19,34 @@ public class Main {
         Button.waitForAnyPress();
 
         EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
+        EV3TouchSensor touchSensor = new EV3TouchSensor(SensorPort.S2);
 
-        colorSensor.setFloodlight(false);
+        //colorSensor.setFloodlight(false);
 
                 int i = 0;
                 int whiteColourStreak = 0;
                 int colour;
 
                 while(Button.ESCAPE.isUp()) {
+                    /*
                     i++;
                     colour = colorSensor.getColorID();
-                    System.out.println(i + " round, LL: " + colour);
-                    if (colour == 6 && whiteColourStreak == 2){
+                    System.out.println(i + " round, Cl: " + colour);
+                    if (colour == 6 && whiteColourStreak == 1){
                         Sound.beep();
                     } else if (colour == 6){
                         whiteColourStreak++;
                     } else {
                         whiteColourStreak = 0; //reset colour streak if other colour is found
                     }
-
+*/
                     try {
-                        sleep(1000);
+                        sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+
+                    System.out.println("touch: ");
 
                 }
 
